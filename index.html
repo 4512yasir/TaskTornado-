@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do List ✅</h1>
+    <div class="add-task">
+      <input type="text" id="newTaskInput" placeholder="Add a new task..." />
+      <input type="date" id="taskDueDate" />
+      <input type="text" id="taskCategory" placeholder="Category" />
+      <input type="color" id="categoryColor" title="Pick category color" />
+      <select id="taskPriority">
+        <option value="High">High 🔥</option>
+        <option value="Medium" selected>Medium ⚖️</option>
+        <option value="Low">Low 💤</option>
+      </select>
+      <button onclick="handleAddTask()">Add</button>
+    </div>
+
+    <div class="filters">
+      <button onclick="filterTasks('all')">All</button>
+      <button onclick="filterTasks('completed')">Completed</button>
+      <button onclick="filterTasks('deleted')">Deleted</button>
+      <select id="categoryFilter" onchange="renderTasks(currentFilter)">
+        <option value="">All Categories</option>
+      </select>
+      <select id="sortOption" onchange="renderTasks(currentFilter)">
+        <option value="default">Sort: Default</option>
+        <option value="dueDate">Sort by Due Date</option>
+      </select>
+      <input type="text" id="search" placeholder="Search tasks..." />
+    </div>
+
+    <div id="stats" class="stats">📊 Total: 0 | ✅ Completed: 0 | ⏳ Pending: 0</div>
+    <ul id="taskList" class="task-list"></ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
